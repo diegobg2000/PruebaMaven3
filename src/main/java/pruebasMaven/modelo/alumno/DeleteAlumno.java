@@ -1,5 +1,5 @@
 package pruebasMaven.modelo.alumno;
 
-public class DeeleteAlumno {
+public class DeleteAlumno {
 
 }

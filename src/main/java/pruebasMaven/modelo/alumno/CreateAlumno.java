@@ -7,7 +7,11 @@ import javax.persistence.Persistence;
 import pruebasMaven.negocio.AlumnoBean;
 
 	public class CreateAlumno {
+		
+		
 		public void create(AlumnoBean alumno) {
+			
+			
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.diego.pruebasMaven.H2");
 			EntityManager entityManager = emf.createEntityManager();
 		
