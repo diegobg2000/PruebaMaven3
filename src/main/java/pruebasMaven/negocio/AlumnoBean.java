@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +26,22 @@ public class AlumnoBean {
 	@Column(name="ciudad")
 	private String ciudad;
 	
+	/*Esto es una clase y hay que saber la relacion, 
+	 *en este caso hay una relacion de de muchos alumnos
+	 *a una asignatura */
+	@ManyToOne
+	@JoinColumn(name = "FK_asignatura") // Esto que te vas a encontrar aqui va a estar en otra tabla y el vinculo que tienen lo vas a guardar en una columna a la cual le vamos a dar el nombre 
+	private AsignaturaBean asignatura;
 	
+	
+	
+	
+	public AsignaturaBean getAsignatura() {
+		return asignatura;
+	}
+	public void setAsignatura(AsignaturaBean asignatura) {
+		this.asignatura = asignatura;
+	}
 	public long getId() {
 		return id;
 	}
