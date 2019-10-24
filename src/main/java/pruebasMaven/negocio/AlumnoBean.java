@@ -41,6 +41,10 @@ public class AlumnoBean {
 	}
 	public void setAsignatura(AsignaturaBean asignatura) {
 		this.asignatura = asignatura;
+		
+	public void addAlumno(AlumnoBean alumno) {
+		if(!alumnos.contains)
+	}
 	}
 	public long getId() {
 		return id;

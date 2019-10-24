@@ -1,19 +1,17 @@
 package pruebasMaven.negocio;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="asignatura")
-public class AsignaturaBean {
+@Table(name="profesor")
+public class ProfesorBean {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,10 +21,17 @@ public class AsignaturaBean {
 	@Column
 	private String nombre;
 	
-	/*Como en este lado hay una asignatura para muchos alumnos se indica con el @OneToMany */
-	@OneToMany(mappedBy= "asignatura")//Le idicamos que se tiene que enganchar con el provate asignaturaBean de la clase AlumnoBean en este caso asignatua
-	/*Busco que si yo tengo una asignatura pueda sacar todos los datod que hay en ella pero sin select que lo haga el todo*/
-	private List<AlumnoBean> alumnos = new ArrayList<AlumnoBean>();
+	@Column
+	private String dni;
+	
+	//Se esta creando una foreign key
+	@OneToMany
+	@JoinColumn(name= "FK_asignatura")
+	private AsignaturaBean asignatura;
+	
+	
+	
+	
 
 	public long getId() {
 		return id;
@@ -43,8 +48,14 @@ public class AsignaturaBean {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 	
 	
 }

@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import pruebasMaven.negocio.AlumnoBean;
+import pruebasMaven.util.Connection;
 
 	public class CreateAlumno {
 		
@@ -12,12 +13,17 @@ import pruebasMaven.negocio.AlumnoBean;
 		public void create(AlumnoBean alumno) {
 			
 			
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.diego.pruebasMaven.H2");
+			//El singleton es Connection que sabe entrgar EEntyties manager unicos?...
+			//EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.diego.pruebasMaven.H2");
+			EntityManager entityManager = Singleton.getEntityManager();
+			//EntityManagerFactory emf = ConnectSYion.get();
 			EntityManager entityManager = emf.createEntityManager();
 		
-			entityManager.getTransaction().begin();
-			entityManager.persist(alumno);
+			
+			entityManager.getTransaction().begin();//Se necesita un entity manager y ahora cada vez quese ejecuta se crea uno
+			entityManager.persist(alumno);//
 			entityManager.getTransaction().commit();
-			entityManager.close();	
+			//Porque es ridiculo
+			//entityManager.close();	
 	}
 }
