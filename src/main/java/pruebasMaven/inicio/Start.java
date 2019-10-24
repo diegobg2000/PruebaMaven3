@@ -7,16 +7,19 @@ import pruebasMaven.modelo.profesor.CreateProfesor;
 import pruebasMaven.negocio.AlumnoBean;
 import pruebasMaven.negocio.AsignaturaBean;
 import pruebasMaven.negocio.ProfesorBean;
+import pruebasMaven.util.Connection;
 
 public class Start {
 
 	public static void main(String[] args) {
+		/*
+		
 		//AsignaturaBean
 		AsignaturaBean programacion = new AsignaturaBean();
 		programacion.setNombre("Programacion");
 		
 		AsignaturaBean ingles = new AsignaturaBean();
-		ingles.setNombre("Inglés");
+		ingles.setNombre("Inglï¿½s");
 
 		AsignaturaBean frances = new AsignaturaBean();
 		frances.setNombre("Frances");
@@ -48,14 +51,14 @@ public class Start {
 		AlumnoBean pepe = new AlumnoBean();
 		pepe.setNombre("Pepe");
 		pepe.setTelefono("676545678");
-		pepe.setCiudad("Gijón");
+		pepe.setCiudad("Gijon");
 		//pepe.setAsignatura(ingles);
 		
 		AlumnoBean alberto = new AlumnoBean();
 		alberto.setNombre("Alberto");
 		alberto.setTelefono("09876543");
 		alberto.setCiudad("Lugones");
-		alberto.setAsignatura(ingles);	//Importa el orden del codigo a la hora de pasarle la asignatura,rn rdter caso "programacion"????
+		//alberto.setAsignatura(ingles);	//Importa el orden del codigo a la hora de pasarle la asignatura,rn rdter caso "programacion"????
 		
 		
 		
@@ -74,5 +77,67 @@ public class Start {
 		delete.delete(pepe);
 		*/
 		
+		
+		
+		
+		
+		
+		
+		/*CONTENIDO DEL START DE MARCOS********************************************************************************/
+
+		
+		
+		
+		
+		
+		/*CONTENIDO DEL START DE MARCOS********************************************************************************/
+
+		AsignaturaBean lengua = new AsignaturaBean();
+		lengua.setNombre("lengua");
+		
+		AsignaturaBean historia = new AsignaturaBean();
+		historia.setNombre("historia");
+		
+		AsignaturaBean filosofia = new AsignaturaBean();
+		filosofia.setNombre("filosofia");
+
+		AsignaturaBean mates = new AsignaturaBean();
+		mates.setNombre("mates");
+		
+
+		
+		
+		
+		AlumnoBean maria = new AlumnoBean();
+		maria.setNombre("Maria");
+		maria.setCiudad("Oviedo");
+		maria.setTelefono("666555444");
+		
+		AlumnoBean marcos = new AlumnoBean();
+		marcos.setNombre("Marcos");
+		marcos.setCiudad("Oviedo");
+		marcos.setTelefono("666555444");
+
+		
+		filosofia.addAlumno(marcos);
+		filosofia.addAlumno(maria);
+		
+		
+		CreateAsignatura createAsignatura = new CreateAsignatura();
+		createAsignatura.create(lengua);
+		createAsignatura.create(mates);
+		createAsignatura.create(historia);
+		createAsignatura.create(filosofia);
+		
+		
+		CreateAlumno createAlumno = new CreateAlumno();
+		createAlumno.create(marcos);
+		createAlumno.create(maria);
+
+		
+		AsignaturaBean nueva = Connection.getEntityManager().find(AsignaturaBean.class, 4L);
+		System.out.println(nueva);
+		
+		Connection.getEntityManager().close();
 	}
 }
