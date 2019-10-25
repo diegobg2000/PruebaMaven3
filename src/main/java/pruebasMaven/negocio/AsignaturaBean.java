@@ -44,7 +44,4 @@ public class AsignaturaBean {
 		this.nombre = nombre;
 	}
 	
-	
-	
-	
 }

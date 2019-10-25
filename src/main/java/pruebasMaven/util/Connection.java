@@ -21,6 +21,6 @@ public class Connection {
 				
 				new Connection();
 			}
-			return entityManager;
+			return entityManager;/*Cambiar esto por un entity Manager Factory*/
 		}
 	}

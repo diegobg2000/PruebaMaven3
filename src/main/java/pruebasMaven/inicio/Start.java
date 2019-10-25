@@ -134,6 +134,17 @@ public class Start {
 		createAlumno.create(marcos);
 		createAlumno.create(maria);
 
+		/*Con lo de arriba he persistido en la base de datps los alumnos*/
+		
+		
+		
+		/*Cambiar cosas en el objeto*/
+		/*Aqui lo que esta hacinedo es cambiarle el nombre al objeto*/
+		marcos.setNombre("Carlos");
+		/*En este caso para que guardaran los cambios hube que volver a persistir, pero no es lo normal*/
+		createAlumno.create(marcos);
+		/*Es probable que haya un intermediario entre la base de datos y Hibernate*/
+		
 		
 		AsignaturaBean nueva = Connection.getEntityManager().find(AsignaturaBean.class, 4L);
 		System.out.println(nueva);
